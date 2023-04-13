@@ -3,7 +3,7 @@
     <div class="dezgo__form">
       <p class="form__label">Prompt</p>
       <p class="form__label--small">
-        Describe how the final image should look like
+        Опишите, как должно выглядеть конечное изображение
       </p>
       <textarea
         id="prompt"
@@ -13,8 +13,8 @@
         class="form__textarea"
       ></textarea>
 
-      <p class="form__label">Model</p>
-      <p class="form__label--small">The AI used to generate the image.</p>
+      <p class="form__label">Модель</p>
+      <p class="form__label--small">Stable-Diffusion используемая для создания изображения.</p>
       <select class="form__select" id="model">
         <option value="anything_3_0">Anything 3.0 (anime)</option>
         <option value="anything_4_0">Anything 4.0 (anime)</option>
@@ -38,8 +38,8 @@
         <option value="waifudiffusion_1_4">Waifu Diffusion 1.4 (anime)</option>
       </select>
 
-      <p class="form__label">Resolution</p>
-      <p class="form__label--small">Choose image resolution</p>
+      <p class="form__label">Разрешение</p>
+      <p class="form__label--small">Выберите разрешение изображения</p>
       <input
         id="resolution"
         type="range"
@@ -49,14 +49,14 @@
         class="form__range"
       />
       <ul class="list range__descr">
-        <li>Portrait</li>
-        <li>Square</li>
-        <li>Landscape</li>
+        <li>Вертикальное</li>
+        <li>Квадратное</li>
+        <li>Горизонтальное</li>
       </ul>
 
-      <p class="form__label">Negative prompt</p>
+      <p class="form__label">Негативный prompt</p>
       <p class="form__label--small">
-        Describe what you DON'T want in the generated image
+        Опишите, чего вы НЕ хотите видеть в сгенерированном изображении
       </p>
       <textarea
         id="negativePrompt"
@@ -65,17 +65,18 @@
         type="text"
         class="form__textarea"
       >
-ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, extra limbs, disfigured, deformed, body out of frame, blurry, bad anatomy, blurred, watermark, grainy, signature, cut off, draft</textarea
+(deformed, distorted, disfigured:1.3), poorly drawn, bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, (mutated hands and fingers:1.4), disconnected limbs, mutation, mutated, ugly, disgusting, blurry, amputation, watermark, signature</textarea
       >
 
       <p class="form__label">Guidance</p>
       <p class="form__label--small">
-        Adjusts how much the AI tries to fit the prompt (higher = stricter,
-        lower = more freedom). The sweet spot is between 6-10, extreme values
-        may produce more artifacts.
+        Регулирует, насколько АИ пытается точно соответствовать заданному запросу
+        (большее значение = строже, меньшее значение = больше свободы).
+        Оптимальным является значение от 6 до 10, экстремальные значения могут привести
+		к возникновению артефактов.
       </p>
       <div class="guidance__input">
-        <p class="guidance__num" id="guidanceNum">10</p>
+        <p class="guidance__num" id="guidanceNum">7</p>
         <input
           id="guidance"
           type="range"
@@ -88,7 +89,7 @@ ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of f
 
       <p class="form__label">Sampler</p>
       <p class="form__label--small">
-        Defines the sampling method used to generate the image.
+        Определяет метод выборки, используемый для генерации изображения.
       </p>
       <select class="form__select" id="sampler">
         <option value="ddim">DDIM</option>
@@ -101,14 +102,15 @@ ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of f
 
       <p class="form__label">Seed</p>
       <p class="form__label--small">
-        Unique image seed number. If not provided, the image will be random.
+        Уникальный номер для создания изображения. Если он не предоставлен, 
+		изображение будет создано случайным образом.
       </p>
       <input type="number" class="form__input" id="seed" />
 
       <p class="form__label">Steps</p>
       <p class="form__label--small">
-        Number of sampling steps. More steps = more details but also longer
-        computation time.
+        Количество шагов выборки. Больше шагов = больше деталей, 
+		но также увеличивается время вычислений.
       </p>
       <div class="steps__input">
         <p class="steps__num" id="stepsNum">30</p>
@@ -125,8 +127,9 @@ ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of f
 
       <p class="form__label">Upscale</p>
       <p class="form__label--small">
-        Upscale the image by this factor using the Real-ESRGAN model. Currently
-        only a factor of 2 is supported.
+        Увеличить размер изображения в указанное число раз 
+		с использованием модели Real-ESRGAN. 
+		В настоящее время поддерживается только множитель 2.
       </p>
       <input
         id="upscale"
@@ -140,8 +143,8 @@ ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of f
     </div>
 
     <div class="output__thumb">
-      <h2 class="output__title">Output</h2>
-      <button type="button" class="button" id="runBtn">Run</button>
+      <h2 class="output__title">Вывод изображения</h2>
+      <button type="button" class="button" id="runBtn">Создать🚀</button>
       <img id="generatedImg" class="output__img" />
     </div>
   </div>
