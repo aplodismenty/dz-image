@@ -1,0 +1,51 @@
+@media only screen and (max-width: 767px) {
+.dezgo__api {
+.container {
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+}
+}
+
+.dezgo__form {
+width: 90%;
+max-width: 500px;
+}
+
+.form__textarea,
+.form__input,
+.form__select,
+.form__range--guidance,
+.form__range--steps {
+width: 100%;
+}
+
+.output__thumb {
+min-width: unset;
+width: 90%;
+margin-top: 30px;
+margin-bottom: 30px;
+position: static;
+}
+
+.output__img {
+width: 100%;
+box-shadow: none;
+}
+
+.range__descr {
+width: 100%;
+font-size: 12px;
+}
+
+.guidance__input,
+.steps__input {
+width: 100%;
+margin-bottom: 15px;
+}
+
+.guidance__num,
+.steps__num {
+font-size: 14px;
+}
+}
