@@ -1,0 +1,148 @@
+<section class="dezgo__api">
+  <div class="container">
+    <div class="dezgo__form">
+      <p class="form__label">Prompt</p>
+      <p class="form__label--small">
+        Describe how the final image should look like
+      </p>
+      <textarea
+        id="prompt"
+        cols="30"
+        rows="10"
+        type="text"
+        class="form__textarea"
+      ></textarea>
+
+      <p class="form__label">Model</p>
+      <p class="form__label--small">The AI used to generate the image.</p>
+      <select class="form__select" id="model">
+        <option value="anything_3_0">Anything 3.0 (anime)</option>
+        <option value="anything_4_0">Anything 4.0 (anime)</option>
+        <option value="epic_diffusion_1_1" selected>
+          Epic Diffusion 1.1 (general)
+        </option>
+        <option value="stablediffusion_1_4">
+          Stable Diffusion 1.4 (general)
+        </option>
+        <option value="stablediffusion_1_5">
+          Stable Diffusion 1.5 (general)
+        </option>
+        <option value="stablediffusion_2_1_512px">
+          Stable Diffusion 2.1 (512px) (general)
+        </option>
+
+        <option value="vintedois_diffusion_v0_1">
+          Vintedois Diffusion (simple, general)
+        </option>
+        <option value="waifudiffusion_1_3">Waifu Diffusion 1.3 (anime)</option>
+        <option value="waifudiffusion_1_4">Waifu Diffusion 1.4 (anime)</option>
+      </select>
+
+      <p class="form__label">Resolution</p>
+      <p class="form__label--small">Choose image resolution</p>
+      <input
+        id="resolution"
+        type="range"
+        min="0"
+        max="6"
+        step="1"
+        class="form__range"
+      />
+      <ul class="list range__descr">
+        <li>Portrait</li>
+        <li>Square</li>
+        <li>Landscape</li>
+      </ul>
+
+      <p class="form__label">Negative prompt</p>
+      <p class="form__label--small">
+        Describe what you DON'T want in the generated image
+      </p>
+      <textarea
+        id="negativePrompt"
+        cols="30"
+        rows="10"
+        type="text"
+        class="form__textarea"
+      >
+ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, extra limbs, disfigured, deformed, body out of frame, blurry, bad anatomy, blurred, watermark, grainy, signature, cut off, draft</textarea
+      >
+
+      <p class="form__label">Guidance</p>
+      <p class="form__label--small">
+        Adjusts how much the AI tries to fit the prompt (higher = stricter,
+        lower = more freedom). The sweet spot is between 6-10, extreme values
+        may produce more artifacts.
+      </p>
+      <div class="guidance__input">
+        <p class="guidance__num" id="guidanceNum">10</p>
+        <input
+          id="guidance"
+          type="range"
+          min="0"
+          max="20"
+          step="1"
+          class="form__range form__range--guidance"
+        />
+      </div>
+
+      <p class="form__label">Sampler</p>
+      <p class="form__label--small">
+        Defines the sampling method used to generate the image.
+      </p>
+      <select class="form__select" id="sampler">
+        <option value="ddim">DDIM</option>
+        <option value="dpm">DPM</option>
+        <option value="euler">Euler</option>
+		<option value="k_lms">K-LMS</option>
+		<option value="k_lms">pndm</option>
+        <option value="euler_a" selected>Euler Ancestral</option>
+      </select>
+
+      <p class="form__label">Seed</p>
+      <p class="form__label--small">
+        Unique image seed number. If not provided, the image will be random.
+      </p>
+      <input type="number" class="form__input" id="seed" />
+
+      <p class="form__label">Steps</p>
+      <p class="form__label--small">
+        Number of sampling steps. More steps = more details but also longer
+        computation time.
+      </p>
+      <div class="steps__input">
+        <p class="steps__num" id="stepsNum">30</p>
+        <input
+          id="steps"
+          type="range"
+          min="10"
+          max="150"
+          step="1"
+          value="30"
+          class="form__range form__range--steps"
+        />
+      </div>
+
+      <p class="form__label">Upscale</p>
+      <p class="form__label--small">
+        Upscale the image by this factor using the Real-ESRGAN model. Currently
+        only a factor of 2 is supported.
+      </p>
+      <input
+        id="upscale"
+        type="range"
+        min="1"
+        max="2"
+        step="1"
+        value="1"
+        class="form__range"
+      />
+    </div>
+
+    <div class="output__thumb">
+      <h2 class="output__title">Output</h2>
+      <button type="button" class="button" id="runBtn">Run</button>
+      <img id="generatedImg" class="output__img" />
+    </div>
+  </div>
+</section>
