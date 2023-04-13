@@ -6,7 +6,12 @@
       justify-content: flex-start;
     }
   }
-
+  .container {
+	width: 1200px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+  }
   .dezgo__form {
     width: 90%;
     max-width: 500px;
